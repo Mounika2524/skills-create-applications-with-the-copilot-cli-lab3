@@ -7,6 +7,11 @@
  * - Subtraction (-)
  * - Multiplication (×)
  * - Division (÷)
+ * 
+ * And advanced arithmetic operations:
+ * - Modulo (%)
+ * - Exponentiation (^)
+ * - Square Root (√)
  */
 
 /**
@@ -51,6 +56,43 @@ function divide(a, b) {
     throw new Error('Error: Division by zero is not allowed');
   }
   return a / b;
+}
+
+/**
+ * Modulo operation
+ * @param {number} a - First operand (dividend)
+ * @param {number} b - Second operand (divisor)
+ * @returns {number} Remainder of a divided by b
+ * @throws {Error} If b is 0 (modulo by zero)
+ */
+function modulo(a, b) {
+  if (b === 0) {
+    throw new Error('Error: Modulo by zero is not allowed');
+  }
+  return a % b;
+}
+
+/**
+ * Power/Exponentiation operation
+ * @param {number} base - The base number
+ * @param {number} exponent - The exponent (power)
+ * @returns {number} Base raised to the exponent
+ */
+function power(base, exponent) {
+  return Math.pow(base, exponent);
+}
+
+/**
+ * Square root operation
+ * @param {number} n - The number to find the square root of
+ * @returns {number} The square root of n
+ * @throws {Error} If n is negative (square root of negative number)
+ */
+function squareRoot(n) {
+  if (n < 0) {
+    throw new Error('Error: Cannot calculate square root of a negative number');
+  }
+  return Math.sqrt(n);
 }
 
 /**
@@ -109,7 +151,7 @@ function main() {
   }
 }
 
-module.exports = { add, subtract, multiply, divide };
+module.exports = { add, subtract, multiply, divide, modulo, power, squareRoot };
 
 if (require.main === module) {
   main();
